@@ -1,0 +1,20 @@
+
+  <div class="noteListContainer noteListLlocation" id="divNoteList">
+    <h2>Notes</h2>
+    <div *ngFor="let note of NoteList">
+      <app-note-item [note]="note"></app-note-item>
+      <br />
+    </div>
+    <mat-card *ngIf="isConnected" class="noteItem">
+      <mat-card-header>
+        <mat-form-field>
+          <mat-label>Add New Item</mat-label>
+          <input matInput type="text" [(ngModel)]="newNoteTitle" id="txtNewNoteTitle" />
+          <button mat-button *ngIf="newNoteTitle" matSuffix mat-icon-button aria-label="Add" (click)="AddNewNote()"
+                  id="btnNewNote">
+            <mat-icon>+</mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-card-header>
+    </mat-card>
+  </div>

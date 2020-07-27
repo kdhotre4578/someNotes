@@ -1,0 +1,12 @@
+
+<div *ngIf="noteTitle" class="textNoteSection">
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="noteTitle" id="txtTextNoteTitle" placeholder="Title..." />
+  </mat-form-field>
+  <div class="textNoteDiv">
+    <textarea class="textNote" placeholder="note..." [(ngModel)]="noteText" id="txtTextNote"></textarea>
+    <div style="text-align:right">
+      <button mat-raised-button (click)="SaveNote()" id="btnSave">Save</button>
+    </div>
+  </div>
+</div>

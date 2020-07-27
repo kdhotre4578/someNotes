@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mainContainer {
+  width: 25%;
+  height: 60%;
+  position: absolute;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 8px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  max-height: 60%;
+}
+
+@media screen and (max-width: 1150px) {
+
+  #divNoteList {
+    left: 3%;
+    top: 15%;
+    width: 40%;
+    height: 70%;
+    max-height: 70%;
+  }
+
+  #divNoteContents {
+    left: 44%;
+    top: 15%;
+    width: 50%;
+    height: 70%;
+    max-height: 70%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  #divNoteList {
+    left: 3%;
+    top: 10%;
+    height: 35%;
+    width: 90%;
+  }
+
+  #divNoteContents {
+    left: 3%;
+    top: 47%;
+    height: 43%;
+    width: 90%;
+  }
+}
+

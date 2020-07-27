@@ -1,0 +1,23 @@
+
+.isPending {
+  text-decoration: none;
+  color: black;
+}
+
+.isCompleted {
+  text-decoration: line-through;
+  color: green;
+}
+
+.removeItemStyle {
+  color: gray;
+  display: none;
+}
+
+.item {
+  display: normal;
+}
+
+  .item:hover .removeItemStyle {
+    display: inline-block;
+  }

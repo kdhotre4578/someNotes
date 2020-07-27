@@ -1,0 +1,12 @@
+<div>
+  <mat-form-field>
+    <mat-label>Add New Item</mat-label>
+    <input matInput type="text" [(ngModel)]="txtNewItem" id="txtNewItem" />
+    <button mat-button *ngIf="txtNewItem" matSuffix mat-icon-button aria-label="Clear" (click)="txtNewItem=''" id="btnClearText" >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  </div>
+    <button mat-button *ngIf="txtNewItem" class="roundButton" (click)="AddItem()" id="btnAddNoteItem">+</button>
+  <div>
+</div>

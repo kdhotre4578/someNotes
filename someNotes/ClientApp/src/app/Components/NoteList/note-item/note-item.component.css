@@ -1,0 +1,21 @@
+
+.link {
+  text-decoration: none;
+  float: left;
+}
+
+.space {
+  flex: 1;
+}
+
+.noteItem:hover {
+  border: 1px solid #0faff0;
+}
+
+.noteItem:active {
+  border: 1px solid red;
+}
+
+.noteItem:after {
+  border: 1px solid red;
+}

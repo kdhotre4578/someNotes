@@ -1,0 +1,20 @@
+
+  <div *ngIf="noteTitle">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="noteTitle" placeholder="Title..." (focusout)="UpdateTitle()"
+             id="txtToDoNoteTitle"/>
+    </mat-form-field>
+    <br />
+    <div *ngIf="!toDoIItems" >
+      <label>No items present...</label>
+    </div>
+    <div *ngFor="let item of toDoIItems" class="item">
+      <mat-checkbox [checked]="item.IsCompleted" [ngClass]="SetFontStyle(item.IsCompleted)" (change)="SetItem(item)" color="primary">{{item.Text}}</mat-checkbox>
+      &nbsp; &nbsp;
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" class="removeItemStyle" title="Remove"
+              (click)="RemoveItem(item)">x</button>
+    </div>
+    <br />
+    <app-to-do-item (notifyItemAdded)="AddNoteItem($event)"></app-to-do-item>
+  </div>
+

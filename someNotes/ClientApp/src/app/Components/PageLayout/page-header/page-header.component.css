@@ -1,0 +1,13 @@
+.toolbar {
+  height: 60px;
+  margin: -7px;
+  display: flex;
+  align-items: center;
+  background-color: #0faff0;
+  color: white;
+  font-weight: 600;
+}
+
+.space {
+  flex: 1;
+}
