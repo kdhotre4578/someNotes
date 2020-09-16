@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,11 @@ import { routes } from './Common/routes';
 import { PageHeaderComponent } from './Components/PageLayout/page-header/page-header.component';
 import { PageFooterComponent } from './Components/PageLayout/page-footer/page-footer.component';
 import { PageBodyComponent } from './Components/PageLayout/page-body/page-body.component';
+import { LoginComponent } from './Components/Auth/login/login.component';
+import { LogoutComponent } from './Components/Auth/logout/logout.component';
+import { RegisterComponent } from './Components/Auth/register/register.component';
+import { AuthInterceptor } from './Interceptors/auth.interceptor';
+import { NoteTypeSelectDialogComponent } from './Components/Dialog/note-type-select-dialog/note-type-select-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,10 @@ import { PageBodyComponent } from './Components/PageLayout/page-body/page-body.c
     PageHeaderComponent,
     PageFooterComponent,
     PageBodyComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent,
+    NoteTypeSelectDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +59,12 @@ import { PageBodyComponent } from './Components/PageLayout/page-body/page-body.c
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

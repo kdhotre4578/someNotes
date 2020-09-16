@@ -21,35 +21,56 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   #divNoteList {
     left: 3%;
-    top: 15%;
+    top: 12%;
     width: 40%;
-    height: 70%;
-    max-height: 70%;
+    height: 75%;
   }
 
   #divNoteContents {
     left: 44%;
-    top: 15%;
+    top: 12%;
     width: 50%;
-    height: 70%;
-    max-height: 70%;
+    height: 75%;
+  }
+
+  #divNoteContents1 {
+    left: 17%;
+    top: 16%;
+    width: 65%;
+    height: 65%;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 750px) {
 
   #divNoteList {
     left: 3%;
-    top: 10%;
+    top: 9%;
     height: 35%;
+    min-height: 35%;
+    max-height: 35%;
     width: 90%;
+    overflow-y: auto;
   }
 
   #divNoteContents {
     left: 3%;
-    top: 47%;
-    height: 43%;
+    top: 46%;
+    height: 45%;
+    min-height: 45%;
+    max-height: 45%;
     width: 90%;
+    overflow-y: auto;
+  }
+
+  #divNoteContents1 {
+    left: 3%;
+    top: 25%;
+    height: 45%;
+    min-height: 45%;
+    max-height: 45%;
+    width: 90%;
+    overflow-y: auto;
   }
 }
 

@@ -1,5 +1,10 @@
 <div class="toolbar">
-  <!--<div class="space">
-  </div>-->
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: Garamond; font-size:x-large; font-weight:normal">{{appTitle}} |</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="appTitle">{{appTitle}}</span>
+  <div class="space">
+  </div>
+    <a *ngIf="user" class="appLinks link">Hi {{user.FirstName}}</a>
+  |<a class="appLinks link" [routerLink]="'/' + GetUserLog()">{{GetUserLog()}}</a>|
+  <div *ngIf="!user" class="link">
+    <a class="appLinks" style="text-decoration: none;color: white;" [routerLink]="'/register'">Register</a>
+  </div>
 </div>

@@ -1,2 +1,4 @@
-<app-note-list></app-note-list>
-<app-note-contents></app-note-contents>
+<div *ngIf="user">
+  <app-note-list class="noteListContainer1 noteListContainer1Location" [activeUser] = "user" id="divNoteList"></app-note-list>
+</div>
+<app-note-contents [ngClass]="GetCSSClass()" [id]="GetContentDivId()"></app-note-contents>

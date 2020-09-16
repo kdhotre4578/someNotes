@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { formatDate } from '@angular/common';
 
 import { Note } from '../Common/note';
 import { NoteItem } from '../Common/note-item';

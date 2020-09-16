@@ -11,3 +11,22 @@
 .space {
   flex: 1;
 }
+
+.appTitle {
+  font-family: Garamond;
+  font-size: x-large;
+  font-weight: normal;
+}
+
+.appLinks {
+  font-family: Garamond;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+}

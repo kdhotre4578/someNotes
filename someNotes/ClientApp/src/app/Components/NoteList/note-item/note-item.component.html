@@ -1,20 +1,22 @@
 <mat-card class="noteItem">
   <mat-card-header>
     <div *ngIf="note.IsTodo">
-      <a [routerLink]="[ '/todo', note.Id]" class="link" id="lnkToDo">{{note.NoteTitle}}</a>
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <div style="float:right">
-        <mat-icon title="To Do List">list</mat-icon>
-      </div>
+      <a [routerLink]="[ '/todo', note.Id]" class="link" id="lnkToDo">
+        {{note.NoteTitle}}
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <div style="float:right">
+          <mat-icon title="To Do List">list</mat-icon>
+        </div>
+      </a>
     </div>
     <div *ngIf="!note.IsTodo">
-      <a  [routerLink]="[ '/textnote', note.Id]" class="link" id="lnkTextNote">
+      <a [routerLink]="[ '/textnote', note.Id]" class="link" id="lnkTextNote">
         {{note.NoteTitle}}
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <div style="float:right">
+          <mat-icon title="Note">note</mat-icon>
+        </div>
       </a>
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <div style="float:right">
-        <mat-icon title="Note">note</mat-icon>
-      </div>
     </div>
   </mat-card-header>
 </mat-card>

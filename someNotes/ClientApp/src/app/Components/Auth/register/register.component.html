@@ -1,0 +1,30 @@
+<h2>Register</h2>
+<div class="registerContainer">
+  <form [formGroup]="registerForm" (ngSubmit)="Submit()">
+    <mat-form-field>
+      <input type="text" matInput id="txtFirstName" formControlName="FirstName" placeholder="First Name" />
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <input type="text" matInput id="txtLastName" formControlName="LastName" placeholder="Last Name" />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input type="text" matInput id="txtUsername" formControlName="Username" placeholder="Username" />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input type="password" matInput id="txtPassword" formControlName="Password" placeholder="Password" />
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <input type="password" matInput id="txtConfirmPassword" formControlName="ConfirmPassword" placeholder="Confirm Password" />
+    </mat-form-field>
+    <br />
+    <br />
+    <button mat-raised-button type="submit" [disabled]="!registerForm.valid">Register</button>
+  </form>
+  <div [ngClass]="displayClass">
+    <p>{{displayMessage}}</p>
+  </div>
+</div>

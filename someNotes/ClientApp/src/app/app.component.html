@@ -1,6 +1,6 @@
-<app-page-header [appTitle] = "title"></app-page-header>
+<app-page-header [appTitle] = "title" [user]="activeUser"></app-page-header>
 <div class="appbody">
-  <app-page-body></app-page-body>
+  <app-page-body [user] ="activeUser"></app-page-body>
 </div>
 <app-page-footer></app-page-footer>
 

@@ -1,0 +1,19 @@
+
+
+.registerContainer {
+  top: 15%;
+  left: 5%;
+  height: 85%;
+  width: 90%;
+  position: absolute;
+}
+
+.registerSuccess {
+  color: green;
+  margin: 2% 2% 2% 2%;
+}
+
+.registerFail {
+  color: red;
+  margin: 2% 2% 2% 2%;
+}

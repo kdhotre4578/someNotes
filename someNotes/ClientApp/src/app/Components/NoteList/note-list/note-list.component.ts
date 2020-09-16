@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NotesRepositoryService } from '../../../Services/notes-repository.service';
 import { Note } from '../../../Common/note';
-import { isObject } from 'util';
+import { User } from '../../../Common/user';
+import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NoteTypeSelectDialogComponent } from '../../Dialog/note-type-select-dialog/note-type-select-dialog.component';
 
 @Component({
   selector: 'app-note-list',
@@ -13,7 +16,12 @@ export class NoteListComponent implements OnInit {
   newNoteTitle;
   NoteList: Note[] = [];
   isConnected: boolean = false;
-  constructor(private noteRepoService: NotesRepositoryService) { }
+
+  @Input() activeUser: User = null;
+
+  constructor(private noteRepoService: NotesRepositoryService,
+    private router: Router,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void
   {
@@ -22,7 +30,9 @@ export class NoteListComponent implements OnInit {
 
   RefreshNotesList()
   {
-    this.noteRepoService.GetNoteList(1).subscribe(data => this.SetData(data), error => { this.DisplayError()});
+    this.router.navigateByUrl("");
+    this.noteRepoService.GetNoteList(this.activeUser.UserId).subscribe(data => this.SetData(data), error => { this.DisplayError() });
+    this.newNoteTitle = '';
   }
 
   DisplayError()
@@ -31,23 +41,31 @@ export class NoteListComponent implements OnInit {
     this.isConnected = false;
   }
 
-  SetData(data)
+  SetData(data: Note[])
   {
-    this.NoteList = data;
     this.isConnected = true;
+    this.NoteList = data;
   }
 
-  AddNewNote()
+  OpenDialog()
   {
-    let isTodo: boolean = false;
+    const dialogRef = this.dialog.open(NoteTypeSelectDialogComponent,
+      { width: '350px' });
 
-    if (confirm("Do you want to create To Do List ?"))
+    dialogRef.afterClosed().subscribe(result => this.SetResult(result));
+  }
+
+  SetResult(result: string)
+  {
+    if (result)
     {
-        isTodo = true;
+      this.AddNewNote(result == 'ToDo');
     }
+  }
 
-    let newNote: Note = { Id: -1, NoteTitle: this.newNoteTitle, UserId: 1, IsToDo: isTodo };
-
+  AddNewNote(isTodo: boolean)
+  {
+    let newNote: Note = { Id: -1, NoteTitle: this.newNoteTitle, UserId: this.activeUser.UserId, IsToDo: isTodo };
     this.noteRepoService.AddNote(newNote).subscribe(x => this.RefreshNotesList());
   }
 }
